@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Output, ViewChild, EventEmitter, OnChanges } from '@angular/core';
 import { Speakers } from './../../_models/speakers';
-
 @Component({
   selector: 'app-spaekers',
   templateUrl: './spaekers.component.html',

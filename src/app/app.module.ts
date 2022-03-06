@@ -11,8 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { PowerToXPipe } from './pipes/power-to-x.pipe';
 import { StringConvertPipe } from './pipes/string-convert.pipe';
 import { ArrayFiterPipe } from './pipes/array-fiter.pipe';
-import { HeaderComponent } from './core/header/header.component';
 import { HighLightDirective } from './directives/high-light.directive';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { HighLightDirective } from './directives/high-light.directive';
     SharedModule,
     CoreModule,
     FormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

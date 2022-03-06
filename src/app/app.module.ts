@@ -13,7 +13,8 @@ import { StringConvertPipe } from './pipes/string-convert.pipe';
 import { ArrayFiterPipe } from './pipes/array-fiter.pipe';
 import { HighLightDirective } from './directives/high-light.directive';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RatingModule } from 'primeng/rating';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     StringConvertPipe,
     ArrayFiterPipe,
     HighLightDirective
-
-
   ],
   imports: [
     BrowserModule,
@@ -33,7 +32,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SharedModule,
     CoreModule,
     FormsModule,
-    SweetAlert2Module.forRoot()
+    BrowserAnimationsModule,
+    RatingModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

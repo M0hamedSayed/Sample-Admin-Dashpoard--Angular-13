@@ -14,10 +14,6 @@ export class MainComponent implements OnInit, OnChanges {
     new Speakers(3, "Omar", "Sayed", "", { building: 10, street: 10, city: "fayum" }, "29-9-1991", 40, false, "EGYPT", "ms@gmail.com", false, "Speaker", 2.3)
   ];
 
-  saveSpeaker(data: any) {
-    this.speakers = data;
-    console.log(this.speakers);
-  }
 
   constructor() {
   }

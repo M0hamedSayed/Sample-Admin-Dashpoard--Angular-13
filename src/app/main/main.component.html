@@ -3,12 +3,12 @@
 
         <h4 class="text-2xl font-bold leading-tight text-gray-800 text-center">All Speakers</h4>
     </div>
-    <app-spaekers [speakers]="speakers" [txtSearch]="txtSearch" (speakerEdited)="saveSpeaker($event)"></app-spaekers>
+    <app-spaekers [txtSearch]="txtSearch"></app-spaekers>
     <div class=" pb-4 border-b border-gray-300 py-5 pt-10 w-10/12 m-auto">
 
         <h4 class="text-2xl font-bold leading-tight text-gray-800 text-center">Add Speaker</h4>
     </div>
-    <app-add-seaker [speakers]="speakers"></app-add-seaker>
+    <app-add-seaker></app-add-seaker>
     <!-- <p>{{'Mohamed-sayed-atiaa' | stringConvert}} </p>
     <p>{{null | powerToX:3:2 }} </p>
     <p>{{3 | powerToX:3 }} </p> -->

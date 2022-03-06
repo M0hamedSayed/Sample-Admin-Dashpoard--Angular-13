@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Output, ViewChild, EventEmitter, OnChanges } from '@angular/core';
+import { SpeakerService } from 'src/app/services/speaker.service';
 import { Speakers } from './../../_models/speakers';
 @Component({
   selector: 'app-spaekers',
@@ -7,8 +8,10 @@ import { Speakers } from './../../_models/speakers';
 })
 export class SpaekersComponent implements OnInit, OnChanges {
   @Input() txtSearch: string = "";
-  @Input() speakers: Speakers[] = [];
-  @Output() speakerEdited: EventEmitter<any> = new EventEmitter<any>();
+  readonly!: boolean;
+  // @Input() speakers: Speakers[] = [];
+  // @Output() speakerEdited: EventEmitter<any> = new EventEmitter<any>();
+  speakers!: Speakers[];
   searchStr: string = "";
   getItem() {
     console.log(this.speakers);
@@ -17,35 +20,37 @@ export class SpaekersComponent implements OnInit, OnChanges {
 
   edit: boolean = false;
   enableEditIndex: any = null;
-  delete(i: any) {
-    console.log(i);
-    this.speakers.splice(i, 1);
-    console.log(this.speakers);
-    this.speakerEdited.emit(this.speakers);
+  delete(index: number) {
+    this.speakersService.speakerDelete(index);
+
+    // this.speakers = this.speakersService.getSpeakers();
+    // this.speakers.splice(i, 1);
+    // console.log(this.speakers);
+    // this.speakerEdited.emit(this.speakers);
   }
+
   editClick(i: number) {
     this.edit = true;
     this.enableEditIndex = i;
   }
-  speakerEdit(n: any, id: number, i: number, { ...speaker }): void {
-    console.log(n.parentElement.parentElement, id, i);
 
-    console.log(speaker);
-    const speakerWithId: any = this.speakers.find((s) => {
-      return s.id == id
-    });
-    Object.assign(speakerWithId, speaker);
-    // console.log(speakerWithId);
+  speakerEdit(id: number, { ...speaker }): void {
 
+    // const speakerWithId: any = this.speakers.find((s) => {
+    //   return s.id == id
+    // });
+    // Object.assign(speakerWithId, speaker);
+    this.speakersService.speakerEdit(id, speaker);
     this.edit = false;
-    console.log(this.speakers);
-    this.speakerEdited.emit(this.speakers);
+    // this.speakerEdited.emit(this.speakers);
 
   }
 
   ngOnChanges() {
-  }
-  constructor() {
+    this.speakers = this.speakersService.getSpeakers();
+  }//get all speakers after loaded
+
+  constructor(public speakersService: SpeakerService) {
   }
   ngOnInit(): void {
   }

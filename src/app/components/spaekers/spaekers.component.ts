@@ -9,8 +9,6 @@ import { Speakers } from './../../_models/speakers';
 export class SpaekersComponent implements OnInit, OnChanges {
   @Input() txtSearch: string = "";
   readonly!: boolean;
-  // @Input() speakers: Speakers[] = [];
-  // @Output() speakerEdited: EventEmitter<any> = new EventEmitter<any>();
   speakers!: Speakers[];
   searchStr: string = "";
   getItem() {
@@ -22,11 +20,6 @@ export class SpaekersComponent implements OnInit, OnChanges {
   enableEditIndex: any = null;
   delete(index: number) {
     this.speakersService.speakerDelete(index);
-
-    // this.speakers = this.speakersService.getSpeakers();
-    // this.speakers.splice(i, 1);
-    // console.log(this.speakers);
-    // this.speakerEdited.emit(this.speakers);
   }
 
   editClick(i: number) {
@@ -35,15 +28,8 @@ export class SpaekersComponent implements OnInit, OnChanges {
   }
 
   speakerEdit(id: number, { ...speaker }): void {
-
-    // const speakerWithId: any = this.speakers.find((s) => {
-    //   return s.id == id
-    // });
-    // Object.assign(speakerWithId, speaker);
     this.speakersService.speakerEdit(id, speaker);
     this.edit = false;
-    // this.speakerEdited.emit(this.speakers);
-
   }
 
   ngOnChanges() {

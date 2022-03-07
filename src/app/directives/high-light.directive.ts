@@ -13,6 +13,7 @@ export class HighLightDirective implements OnInit, OnChanges {
     const style = this.el.nativeElement.style;
     let bg: any = { borderRadius: "10px", padding: "5px" }
     bg.backgroundColor = (style.backgroundColor == this.hColor) ? "white" : this.hColor;
+    bg.color = (style.color == "white") ? "black" : "white";
     Object.assign(style, bg);
   }
 

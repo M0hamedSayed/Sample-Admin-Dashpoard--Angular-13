@@ -21,7 +21,6 @@ export class AddSeakerComponent implements OnInit, OnChanges {
     //auto increment ID
     this.speaker.id = this.speakers.length + 1;
     this.speakerService.addSpeaker(this.speaker);
-
     // this.speakers.push(Object.assign({}, this.speaker));
     //reset all inputs
     this.speaker = new Speakers(0, "", "", "", { city: "", building: 0, street: 0 }, "", 0, false, "EGYPT", "", false, "Speaker", 5);
@@ -37,20 +36,6 @@ export class AddSeakerComponent implements OnInit, OnChanges {
     reader.readAsDataURL(this.imgFile.nativeElement.files[0]);
   }
 
-  // uploadImg(e: any) {
-  // const fileInput = e.target.nextElementSibling;
-  // const fileInput = this.imgFile.nativeElement;
-  // let uploaded_image;
-  // fileInput.addEventListener('change', () => {
-  //   const reader = new FileReader();
-  //   reader.addEventListener('load', () => {
-  //     uploaded_image = reader.result;
-  //     this.imgPath = uploaded_image
-  //   });
-  //   reader.readAsDataURL(fileInput.files[0]);
-  // })
-  // fileInput.click();
-  // }
   constructor(public speakerService: SpeakerService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
